@@ -1852,6 +1852,372 @@ function addReportButton() {
 }
 
 /**
+ * Add visit history stats button (development only)
+ */
+function addVisitHistoryButton() {
+    // Check if button already exists
+    if (document.getElementById('visit-history-button')) return;
+    
+    const historyButton = document.createElement('button');
+    historyButton.id = 'visit-history-button';
+    historyButton.innerHTML = '📊 Visit Stats';
+    historyButton.title = 'Show visit history statistics';
+    
+    historyButton.style.cssText = `
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        background: var(--color-blue);
+        color: white;
+        border: none;
+        padding: 0.75rem 1rem;
+        border-radius: 6px;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 9999;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    `;
+    
+    historyButton.addEventListener('click', () => {
+        showVisitHistoryStats();
+    });
+    
+    historyButton.addEventListener('mouseenter', () => {
+        historyButton.style.transform = 'scale(1.05)';
+        historyButton.style.boxShadow = '0 4px 15px rgba(0, 255, 255, 0.4)';
+    });
+    
+    historyButton.addEventListener('mouseleave', () => {
+        historyButton.style.transform = 'scale(1)';
+        historyButton.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+    });
+    
+    document.body.appendChild(historyButton);
+}
+
+/**
+ * Show visit history statistics in a modal
+ */
+function showVisitHistoryStats() {
+    const stats = getVisitHistoryStats();
+    const recentVisits = state.visitHistory.slice(-20);
+    
+    // Create modal
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        font-family: var(--font-mono);
+    `;
+    
+    const content = document.createElement('div');
+    content.style.cssText = `
+        background: var(--color-dark);
+        border: 2px solid var(--color-green);
+        border-radius: 8px;
+        padding: 2rem;
+        max-width: 600px;
+        max-height: 80vh;
+        overflow-y: auto;
+        color: var(--color-green);
+    `;
+    
+    content.innerHTML = `
+        <h2 style="margin-top: 0; color: var(--color-green); text-align: center;">📊 Visit History Statistics</h2>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <h3>📈 Summary</h3>
+            <p><strong>Total Visits:</strong> ${stats.totalVisits}</p>
+            <p><strong>Unique Websites:</strong> ${stats.uniqueVisits}</p>
+            <p><strong>Repeat Rate:</strong> ${stats.repeatRate}%</p>
+        </div>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <h3>🕒 Recent Visits (Last 20)</h3>
+            <div style="max-height: 200px; overflow-y: auto; font-size: 0.8rem;">
+                ${recentVisits.map((visit, index) => {
+                    const domain = new URL(visit.url).hostname;
+                    const timeAgo = Math.floor((Date.now() - visit.timestamp) / 1000 / 60);
+                    const repeatIcon = visit.isRepeat ? '🔄' : '✨';
+                    return `<div style="margin: 0.5rem 0; padding: 0.5rem; background: rgba(0, 255, 0, 0.1); border-radius: 4px;">
+                        ${repeatIcon} <strong>${domain}</strong> - ${timeAgo}m ago
+                    </div>`;
+                }).join('')}
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <h3>🎯 Repeat Prevention</h3>
+            <p>System avoids last <strong>10 visits</strong> when selecting new websites</p>
+            <p>Prefers different <strong>categories</strong> from last 5 visits</p>
+            <p>Tries up to <strong>25 attempts</strong> to find a fresh website</p>
+            <p>Falls back to any website if no fresh options found</p>
+        </div>
+        
+        <button id="close-history-modal" style="
+            width: 100%;
+            padding: 1rem;
+            background: var(--color-green);
+            color: var(--color-dark);
+            border: none;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-weight: bold;
+            cursor: pointer;
+        ">Close</button>
+    `;
+    
+    modal.appendChild(content);
+    document.body.appendChild(modal);
+    
+    // Close handlers
+    const closeButton = content.querySelector('#close-history-modal');
+    const closeModal = () => document.body.removeChild(modal);
+    
+    closeButton.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    
+    // ESC key handler
+    const handleEsc = (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+            document.removeEventListener('keydown', handleEsc);
+        }
+    };
+    document.addEventListener('keydown', handleEsc);
+}
+
+/**
+ * Add repeat prevention test button (development only)
+ */
+function addRepeatPreventionTestButton() {
+    // Check if button already exists
+    if (document.getElementById('repeat-test-button')) return;
+    
+    const testButton = document.createElement('button');
+    testButton.id = 'repeat-test-button';
+    testButton.innerHTML = '🔄 Test Repeats';
+    testButton.title = 'Test repeat prevention system';
+    
+    testButton.style.cssText = `
+        position: fixed;
+        bottom: 140px;
+        right: 20px;
+        background: var(--color-pink);
+        color: white;
+        border: none;
+        padding: 0.75rem 1rem;
+        border-radius: 6px;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 9999;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    `;
+    
+    testButton.addEventListener('click', () => {
+        testRepeatPrevention();
+    });
+    
+    testButton.addEventListener('mouseenter', () => {
+        testButton.style.transform = 'scale(1.05)';
+        testButton.style.boxShadow = '0 4px 15px rgba(255, 0, 255, 0.4)';
+    });
+    
+    testButton.addEventListener('mouseleave', () => {
+        testButton.style.transform = 'scale(1)';
+        testButton.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+    });
+    
+    document.body.appendChild(testButton);
+}
+
+/**
+ * Test repeat prevention system
+ */
+function testRepeatPrevention() {
+    console.log('🧪 Testing repeat prevention system...');
+    
+    // Clear existing history for clean test
+    const originalHistory = [...state.visitHistory];
+    state.visitHistory = [];
+    
+    console.log('📊 Test 1: Generate 15 websites and check for repeats');
+    const testResults = [];
+    const seenUrls = new Set();
+    let repeatCount = 0;
+    
+    for (let i = 0; i < 15; i++) {
+        const website = getRandomCuratedWebsite();
+        
+        // Simulate adding to history
+        state.visitHistory.push({
+            url: website,
+            timestamp: Date.now() - (15 - i) * 1000, // Spread over time
+            isRepeat: seenUrls.has(website)
+        });
+        
+        if (seenUrls.has(website)) {
+            repeatCount++;
+            console.log(`🔄 Repeat #${repeatCount}: ${website} (iteration ${i + 1})`);
+        } else {
+            console.log(`✨ New: ${website} (iteration ${i + 1})`);
+        }
+        
+        seenUrls.add(website);
+        testResults.push({
+            iteration: i + 1,
+            url: website,
+            isRepeat: seenUrls.size < testResults.length + 1
+        });
+    }
+    
+    const uniqueCount = seenUrls.size;
+    const repeatRate = ((15 - uniqueCount) / 15 * 100).toFixed(1);
+    
+    console.log(`📈 Test Results:`);
+    console.log(`   Total generated: 15`);
+    console.log(`   Unique websites: ${uniqueCount}`);
+    console.log(`   Repeat rate: ${repeatRate}%`);
+    console.log(`   Expected: <20% repeat rate with good prevention`);
+    
+    // Test category diversity
+    console.log('📊 Test 2: Category diversity analysis');
+    const categoryCount = {};
+    testResults.forEach(result => {
+        for (const [category, websites] of Object.entries(CURATED_WEBSITES)) {
+            if (websites.includes(result.url)) {
+                categoryCount[category] = (categoryCount[category] || 0) + 1;
+                break;
+            }
+        }
+    });
+    
+    console.log('   Category distribution:');
+    Object.entries(categoryCount).forEach(([category, count]) => {
+        console.log(`     ${category}: ${count} visits`);
+    });
+    
+    // Restore original history
+    state.visitHistory = originalHistory;
+    
+    // Show results in modal
+    showTestResults(testResults, uniqueCount, repeatRate, categoryCount);
+}
+
+/**
+ * Show test results in a modal
+ */
+function showTestResults(testResults, uniqueCount, repeatRate, categoryCount) {
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        font-family: var(--font-mono);
+    `;
+    
+    const content = document.createElement('div');
+    content.style.cssText = `
+        background: var(--color-dark);
+        border: 2px solid var(--color-pink);
+        border-radius: 8px;
+        padding: 2rem;
+        max-width: 700px;
+        max-height: 80vh;
+        overflow-y: auto;
+        color: var(--color-pink);
+    `;
+    
+    const categoryStats = Object.entries(categoryCount)
+        .map(([cat, count]) => `<span style="margin-right: 1rem;">${cat}: ${count}</span>`)
+        .join('<br/>');
+    
+    content.innerHTML = `
+        <h2 style="margin-top: 0; color: var(--color-pink); text-align: center;">🔄 Repeat Prevention Test Results</h2>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <h3>📊 Summary</h3>
+            <p><strong>Total Generated:</strong> 15 websites</p>
+            <p><strong>Unique Websites:</strong> ${uniqueCount}</p>
+            <p><strong>Repeat Rate:</strong> ${repeatRate}%</p>
+            <p><strong>Status:</strong> ${parseFloat(repeatRate) < 20 ? '✅ Good prevention' : '⚠️ High repeat rate'}</p>
+        </div>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <h3>🎨 Category Distribution</h3>
+            <div style="font-size: 0.9rem;">${categoryStats}</div>
+        </div>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <h3>📝 Generation Log</h3>
+            <div style="max-height: 200px; overflow-y: auto; font-size: 0.8rem;">
+                ${testResults.map((result, index) => {
+                    const icon = result.isRepeat ? '🔄' : '✨';
+                    const domain = new URL(result.url).hostname;
+                    return `<div style="margin: 0.25rem 0;">${icon} ${index + 1}. ${domain}</div>`;
+                }).join('')}
+            </div>
+        </div>
+        
+        <button id="close-test-modal" style="
+            width: 100%;
+            padding: 1rem;
+            background: var(--color-pink);
+            color: var(--color-dark);
+            border: none;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-weight: bold;
+            cursor: pointer;
+        ">Close</button>
+    `;
+    
+    modal.appendChild(content);
+    document.body.appendChild(modal);
+    
+    // Close handlers
+    const closeButton = content.querySelector('#close-test-modal');
+    const closeModal = () => document.body.removeChild(modal);
+    
+    closeButton.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    
+    // ESC key handler
+    const handleEsc = (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+            document.removeEventListener('keydown', handleEsc);
+        }
+    };
+    document.addEventListener('keydown', handleEsc);
+}
+
+/**
  * Validate URL format
  */
 function isValidUrl(string) {
@@ -1870,9 +2236,82 @@ function isValidUrl(string) {
  */
 function getRandomCuratedWebsite() {
     const categories = Object.keys(CURATED_WEBSITES);
-    const randomCategory = randomChoice(categories);
-    const websites = CURATED_WEBSITES[randomCategory];
-    return randomChoice(websites);
+    
+    // Get recently visited URLs and their categories (last 10 visits)
+    const recentVisits = state.visitHistory.slice(-10).map(visit => visit.url);
+    const recentCategories = state.visitHistory.slice(-5).map(visit => {
+        // Find which category this URL belongs to
+        for (const [category, websites] of Object.entries(CURATED_WEBSITES)) {
+            if (websites.includes(visit.url)) {
+                return category;
+            }
+        }
+        return null;
+    }).filter(Boolean);
+    
+    // Try to find a non-recent website, preferring different categories
+    let attempts = 0;
+    const maxAttempts = 25;
+    
+    while (attempts < maxAttempts) {
+        attempts++;
+        
+        // For first 15 attempts, prefer categories we haven't used recently
+        let availableCategories = categories;
+        if (attempts <= 15 && recentCategories.length > 0) {
+            const freshCategories = categories.filter(cat => !recentCategories.includes(cat));
+            if (freshCategories.length > 0) {
+                availableCategories = freshCategories;
+                console.log(`🎨 Preferring fresh categories: ${freshCategories.join(', ')}`);
+            }
+        }
+        
+        const randomCategory = randomChoice(availableCategories);
+        const websites = CURATED_WEBSITES[randomCategory];
+        const selectedWebsite = randomChoice(websites);
+        
+        // If we haven't visited this recently, use it
+        if (!recentVisits.includes(selectedWebsite)) {
+            const categoryFreshness = recentCategories.includes(randomCategory) ? '(repeat category)' : '(fresh category)';
+            console.log(`🎯 Selected fresh website: ${selectedWebsite} (category: ${randomCategory}) ${categoryFreshness}`);
+            return selectedWebsite;
+        }
+        
+        console.log(`🔄 Skipping recently visited: ${selectedWebsite} (attempt ${attempts})`);
+    }
+    
+    // If we can't find a fresh website after 25 attempts, 
+    // just return a random one (better than infinite loop)
+    const fallbackCategory = randomChoice(categories);
+    const fallbackWebsite = randomChoice(CURATED_WEBSITES[fallbackCategory]);
+    console.log(`⚠️ Using fallback website after ${maxAttempts} attempts: ${fallbackWebsite}`);
+    return fallbackWebsite;
+}
+
+/**
+ * Get visit history statistics
+ */
+function getVisitHistoryStats() {
+    const recentVisits = state.visitHistory.slice(-20); // Last 20 visits
+    const uniqueUrls = new Set(recentVisits.map(visit => visit.url));
+    const totalVisits = recentVisits.length;
+    const uniqueVisits = uniqueUrls.size;
+    const repeatRate = totalVisits > 0 ? ((totalVisits - uniqueVisits) / totalVisits * 100).toFixed(1) : 0;
+    
+    return {
+        totalVisits,
+        uniqueVisits,
+        repeatRate: parseFloat(repeatRate),
+        recentUrls: Array.from(uniqueUrls)
+    };
+}
+
+/**
+ * Check if a website was recently visited
+ */
+function wasRecentlyVisited(url, lookbackCount = 10) {
+    const recentVisits = state.visitHistory.slice(-lookbackCount).map(visit => visit.url);
+    return recentVisits.includes(url);
 }
 
 /**
@@ -2022,11 +2461,24 @@ async function handleRandomWebsiteClick() {
         // Generate random website
         const website = await generateRandomWebsite();
         
+        // Check if this is a repeat visit
+        const isRepeat = wasRecentlyVisited(website, 10);
+        if (isRepeat) {
+            console.log(`🔄 Note: This website was recently visited`);
+            // Optional: Show user a subtle notification about the repeat
+            // (only in development mode to avoid annoying users)
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                const stats = getVisitHistoryStats();
+                console.log(`📊 Visit stats - Total: ${stats.totalVisits}, Unique: ${stats.uniqueVisits}, Repeat rate: ${stats.repeatRate}%`);
+            }
+        }
+        
         // Store in history
         state.currentWebsite = website;
         state.visitHistory.push({
             url: website,
-            timestamp: Date.now()
+            timestamp: Date.now(),
+            isRepeat: isRepeat
         });
         
         // Keep history limited to last 50 visits
@@ -2159,8 +2611,13 @@ async function init() {
         state.requestTimes = state.requestTimes.filter(time => time > oneMinuteAgo);
     }, 30000); // Clean every 30 seconds
     
-    // Run social sharing tests in development mode
+    // Add development-only features and run tests
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        // Add development buttons
+        addVisitHistoryButton();
+        addRepeatPreventionTestButton();
+        
+        // Run tests
         runSocialSharingTests();
         runContentFilteringTests();
     }
