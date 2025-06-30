@@ -12,16 +12,30 @@
     <meta name="author" content="Rando">
     <meta name="robots" content="index, follow">
     <title>Rando - Discover Random Websites</title>
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/colors.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/buttons.css">
+    <link rel="stylesheet" href="styles/counter.css">
+    <link rel="stylesheet" href="styles/retro-backgrounds.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body>
+    <!-- Retro Background Elements -->
+    <div class="pixel-grid"></div>
+    <div class="pixel-stars"></div>
+    <div class="retro-shapes"></div>
+    
     <header role="banner">
-        <h1>Rando</h1>
-        <p class="tagline">Blast from the past web exploration</p>
+        <div class="header-ascii"></div>
+        <h1 class="glow-animation">Rando</h1>
+        <p class="tagline fade-in-up">Blast from the past web exploration</p>
     </header>
     
     <main role="main">
-        <section class="hero" aria-labelledby="hero-heading">
-            <h2 id="hero-heading">Ready to explore the web?</h2>
+        <section class="hero fade-in-up" aria-labelledby="hero-heading">
+            <h2 id="hero-heading" class="glow-animation">Ready to explore the web?</h2>
             <p class="hero-description">Click the button below to discover a random website from the depths of the internet!</p>
             <button id="random-button" class="big-button" aria-describedby="counter-section">
                 Take Me Somewhere Random!

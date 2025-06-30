@@ -1,0 +1,325 @@
+/* Button Styles for Rando Website - Retro Theme */
+/* Prominent button design with neon effects and animations */
+
+/* ===== PRIMARY BUTTON - "Take Me Somewhere Random" ===== */
+
+.big-button {
+    /* Base Styling */
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    
+    /* Dimensions */
+    padding: 1.5rem 3rem;
+    min-height: 4rem;
+    min-width: 280px;
+    
+    /* Colors */
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+    border: 3px solid var(--btn-primary-bg);
+    
+    /* Layout */
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    
+    /* Border and Shape */
+    border-radius: 8px;
+    
+    /* Transitions */
+    transition: all 0.3s ease;
+    
+    /* Neon Glow Effect */
+    box-shadow: 
+        0 0 10px var(--btn-primary-glow),
+        0 0 20px var(--btn-primary-glow),
+        0 0 30px var(--btn-primary-glow),
+        inset 0 0 10px rgba(0, 255, 0, 0.1);
+    
+    /* Text Shadow */
+    text-shadow: 
+        0 0 5px var(--btn-primary-text),
+        0 0 10px var(--btn-primary-text);
+}
+
+/* Hover State */
+.big-button:hover {
+    background: var(--btn-primary-hover);
+    border-color: var(--btn-primary-hover);
+    transform: translateY(-2px) scale(1.02);
+    
+    /* Enhanced Glow on Hover */
+    box-shadow: 
+        0 0 15px var(--btn-primary-glow),
+        0 0 30px var(--btn-primary-glow),
+        0 0 45px var(--btn-primary-glow),
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        inset 0 0 15px rgba(0, 255, 0, 0.2);
+    
+    /* Stronger Text Shadow */
+    text-shadow: 
+        0 0 8px var(--btn-primary-text),
+        0 0 15px var(--btn-primary-text),
+        0 0 20px var(--btn-primary-text);
+}
+
+/* Active/Pressed State */
+.big-button:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 
+        0 0 8px var(--btn-primary-glow),
+        0 0 15px var(--btn-primary-glow),
+        inset 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+/* Focus State for Accessibility */
+.big-button:focus {
+    outline: none;
+    box-shadow: 
+        0 0 15px var(--btn-primary-glow),
+        0 0 30px var(--btn-primary-glow),
+        0 0 45px var(--btn-primary-glow),
+        0 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
+/* Animated Scan Line Effect */
+.big-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.big-button:hover::before {
+    left: 100%;
+}
+
+/* Pulsing Animation */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 
+            0 0 10px var(--btn-primary-glow),
+            0 0 20px var(--btn-primary-glow),
+            0 0 30px var(--btn-primary-glow);
+    }
+    50% {
+        box-shadow: 
+            0 0 15px var(--btn-primary-glow),
+            0 0 25px var(--btn-primary-glow),
+            0 0 35px var(--btn-primary-glow);
+    }
+}
+
+.big-button {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.big-button:hover {
+    animation: none; /* Stop pulsing on hover */
+}
+
+/* ===== SOCIAL MEDIA BUTTONS ===== */
+
+.social-btn {
+    /* Base Styling */
+    font-family: var(--font-secondary);
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    
+    /* Dimensions */
+    padding: 0.75rem 1.5rem;
+    min-width: 150px;
+    
+    /* Colors */
+    background: var(--social-bg);
+    color: var(--gray-light);
+    border: 2px solid var(--gray-medium);
+    
+    /* Layout */
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    
+    /* Border and Shape */
+    border-radius: 6px;
+    
+    /* Transitions */
+    transition: all 0.3s ease;
+    
+    /* Subtle Glow */
+    box-shadow: 0 0 5px rgba(128, 128, 128, 0.3);
+}
+
+/* Social Button Hover */
+.social-btn:hover {
+    color: var(--social-hover);
+    border-color: var(--social-hover);
+    transform: translateY(-1px);
+    
+    box-shadow: 
+        0 0 10px var(--social-hover),
+        0 0 20px var(--social-hover),
+        0 2px 8px rgba(0, 0, 0, 0.3);
+    
+    text-shadow: 0 0 5px var(--social-hover);
+}
+
+/* Facebook Specific */
+#share-facebook:hover {
+    color: var(--social-facebook);
+    border-color: var(--social-facebook);
+    box-shadow: 
+        0 0 10px var(--social-facebook),
+        0 0 20px var(--social-facebook),
+        0 2px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 5px var(--social-facebook);
+}
+
+/* Twitter/X Specific */
+#share-twitter:hover {
+    color: var(--social-twitter);
+    border-color: var(--social-twitter);
+    box-shadow: 
+        0 0 10px var(--social-twitter),
+        0 0 20px var(--social-twitter),
+        0 2px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 5px var(--social-twitter);
+}
+
+/* Social Button Active State */
+.social-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 0 5px rgba(128, 128, 128, 0.3);
+}
+
+/* Social Button Focus State */
+.social-btn:focus {
+    outline: none;
+    box-shadow: 
+        0 0 10px var(--neon-blue),
+        0 0 0 2px rgba(0, 255, 255, 0.5);
+}
+
+/* ===== RESPONSIVE BUTTON DESIGN ===== */
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .big-button {
+        padding: 1.2rem 2rem;
+        min-width: 240px;
+        font-size: clamp(1rem, 4vw, 1.5rem);
+    }
+    
+    .social-btn {
+        padding: 0.6rem 1.2rem;
+        min-width: 120px;
+        font-size: clamp(0.8rem, 2.5vw, 1rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .big-button {
+        padding: 1rem 1.5rem;
+        min-width: 200px;
+        font-size: clamp(0.9rem, 4vw, 1.3rem);
+    }
+    
+    .social-btn {
+        padding: 0.5rem 1rem;
+        min-width: 100px;
+        font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+    }
+}
+
+/* Large Screen Enhancements */
+@media (min-width: 1200px) {
+    .big-button {
+        padding: 2rem 4rem;
+        min-width: 320px;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+    }
+    
+    .social-btn {
+        padding: 1rem 2rem;
+        min-width: 180px;
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
+    }
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .big-button {
+        animation: none;
+        transition: none;
+    }
+    
+    .big-button::before {
+        display: none;
+    }
+    
+    .social-btn {
+        transition: none;
+    }
+    
+    .big-button:hover,
+    .social-btn:hover {
+        transform: none;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .big-button {
+        border-width: 4px;
+        box-shadow: none;
+    }
+    
+    .social-btn {
+        border-width: 3px;
+        box-shadow: none;
+    }
+}
+
+/* ===== LOADING STATE ===== */
+
+.big-button.loading {
+    pointer-events: none;
+    opacity: 0.7;
+    animation: pulse-loading 1s ease-in-out infinite;
+}
+
+@keyframes pulse-loading {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 0.9; }
+}
+
+.big-button.loading::after {
+    content: '...';
+    animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: ''; }
+    40% { content: '.'; }
+    60% { content: '..'; }
+    80%, 100% { content: '...'; }
+} 

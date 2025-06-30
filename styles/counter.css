@@ -1,0 +1,383 @@
+/* Counter Display Styles for Rando Website - Retro Digital/LCD Theme */
+/* Terminal-style counter with authentic retro computer aesthetics */
+
+/* ===== MAIN COUNTER DISPLAY ===== */
+
+.counter-display {
+    /* Base Styling */
+    font-family: var(--font-mono);
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    text-align: center;
+    
+    /* Colors - Terminal Green */
+    color: var(--counter-text);
+    background: var(--counter-bg);
+    
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    margin: 0 auto;
+    
+    /* Dimensions */
+    min-height: 120px;
+    width: 100%;
+    max-width: 300px;
+    
+    /* Border and Shape - LCD/Digital Display Style */
+    border: 3px solid var(--counter-border);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    
+    /* Digital Display Effects */
+    box-shadow: 
+        /* Outer glow */
+        0 0 20px var(--counter-glow),
+        0 0 40px var(--counter-glow),
+        /* Inner glow */
+        inset 0 0 20px rgba(0, 255, 0, 0.1),
+        /* Depth shadow */
+        0 4px 8px rgba(0, 0, 0, 0.3);
+    
+    /* Text Effects */
+    text-shadow: 
+        0 0 10px var(--counter-text),
+        0 0 20px var(--counter-text),
+        0 0 30px var(--counter-text);
+    
+    /* Transitions */
+    transition: all 0.3s ease;
+}
+
+/* LCD Screen Simulation */
+.counter-display::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        /* Horizontal LCD lines */
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 1px,
+            rgba(0, 255, 0, 0.03) 1px,
+            rgba(0, 255, 0, 0.03) 2px
+        ),
+        /* Vertical LCD lines */
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 1px,
+            rgba(0, 255, 0, 0.02) 1px,
+            rgba(0, 255, 0, 0.02) 2px
+        );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* LCD Bezel Effect */
+.counter-display::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1),
+        transparent 30%,
+        transparent 70%,
+        rgba(0, 0, 0, 0.2)
+    );
+    border-radius: 14px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Counter Number Styling */
+.counter-display {
+    position: relative;
+    z-index: 3;
+}
+
+/* Flicker Animation for Authentic CRT Feel */
+@keyframes flicker {
+    0%, 100% { 
+        opacity: 1;
+        text-shadow: 
+            0 0 10px var(--counter-text),
+            0 0 20px var(--counter-text),
+            0 0 30px var(--counter-text);
+    }
+    2% { 
+        opacity: 0.8;
+        text-shadow: 
+            0 0 8px var(--counter-text),
+            0 0 16px var(--counter-text),
+            0 0 24px var(--counter-text);
+    }
+    4% { opacity: 1; }
+    8% { opacity: 0.9; }
+    10% { opacity: 1; }
+}
+
+.counter-display {
+    animation: flicker 4s infinite;
+}
+
+/* Pulse Animation on Update */
+@keyframes counter-pulse {
+    0% { 
+        transform: scale(1);
+        box-shadow: 
+            0 0 20px var(--counter-glow),
+            0 0 40px var(--counter-glow),
+            inset 0 0 20px rgba(0, 255, 0, 0.1),
+            0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    50% { 
+        transform: scale(1.05);
+        box-shadow: 
+            0 0 30px var(--counter-glow),
+            0 0 60px var(--counter-glow),
+            inset 0 0 30px rgba(0, 255, 0, 0.2),
+            0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+    100% { 
+        transform: scale(1);
+        box-shadow: 
+            0 0 20px var(--counter-glow),
+            0 0 40px var(--counter-glow),
+            inset 0 0 20px rgba(0, 255, 0, 0.1),
+            0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Apply pulse when counter updates */
+.counter-display.updating {
+    animation: counter-pulse 0.6s ease-out;
+}
+
+/* ===== COUNTER LABEL STYLING ===== */
+
+.counter p {
+    font-family: var(--font-mono);
+    color: var(--counter-text);
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    
+    /* Subtle glow for label */
+    text-shadow: 0 0 5px var(--counter-text);
+}
+
+/* ===== DIGITAL SEGMENT STYLING ===== */
+
+/* For future enhancement - 7-segment display style */
+.counter-display.seven-segment {
+    font-family: 'Courier New', monospace;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    
+    /* More angular, digital look */
+    text-shadow: 
+        0 0 5px var(--counter-text),
+        0 0 10px var(--counter-text),
+        0 0 15px var(--counter-text),
+        2px 2px 0px rgba(0, 255, 0, 0.8),
+        -2px -2px 0px rgba(0, 255, 0, 0.8);
+}
+
+/* ===== COUNTER SECTION STYLING ===== */
+
+.counter {
+    /* Enhanced section styling */
+    background: 
+        radial-gradient(
+            ellipse at center,
+            var(--counter-bg) 0%,
+            rgba(0, 17, 0, 0.9) 100%
+        );
+    
+    /* Terminal-style border */
+    border: 2px solid var(--counter-border);
+    border-radius: 16px;
+    
+    /* Enhanced glow effect */
+    box-shadow: 
+        0 0 30px rgba(0, 255, 0, 0.3),
+        inset 0 0 20px rgba(0, 255, 0, 0.05);
+    
+    /* Position and spacing */
+    position: relative;
+    padding: 2.5rem 2rem;
+}
+
+/* Counter section scan lines */
+.counter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0, 255, 0, 0.02) 3px,
+        rgba(0, 255, 0, 0.02) 4px
+    );
+    pointer-events: none;
+    border-radius: 14px;
+    z-index: 1;
+}
+
+/* Ensure content is above scan lines */
+.counter > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .counter-display {
+        font-size: clamp(2rem, 8vw, 4rem);
+        min-height: 80px;
+        padding: 1.5rem 0.75rem;
+        max-width: 250px;
+    }
+    
+    .counter {
+        padding: 2rem 1.5rem;
+    }
+    
+    .counter p {
+        font-size: clamp(0.8rem, 2.5vw, 1rem);
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .counter-display {
+        font-size: clamp(1.5rem, 8vw, 3rem);
+        min-height: 60px;
+        padding: 1rem 0.5rem;
+        max-width: 200px;
+    }
+    
+    .counter {
+        padding: 1.5rem 1rem;
+    }
+    
+    .counter p {
+        font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+        margin-bottom: 0.75rem;
+    }
+}
+
+/* Large Screen Enhancements */
+@media (min-width: 1200px) {
+    .counter-display {
+        font-size: clamp(4rem, 8vw, 8rem);
+        min-height: 150px;
+        padding: 2.5rem 1.5rem;
+        max-width: 400px;
+    }
+    
+    .counter {
+        padding: 3rem 2.5rem;
+    }
+    
+    .counter p {
+        font-size: clamp(1rem, 2.5vw, 1.4rem);
+        margin-bottom: 2rem;
+    }
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .counter-display {
+        animation: none;
+    }
+    
+    .counter-display.updating {
+        animation: none;
+        /* Still provide visual feedback without motion */
+        border-color: var(--neon-green);
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .counter-display {
+        border-width: 4px;
+        box-shadow: none;
+        text-shadow: none;
+        background: #000;
+        color: #0f0;
+    }
+    
+    .counter {
+        box-shadow: none;
+        border-width: 3px;
+    }
+    
+    .counter-display::before,
+    .counter-display::after,
+    .counter::before {
+        display: none;
+    }
+}
+
+/* ===== LOADING STATE ===== */
+
+.counter-display.loading {
+    color: var(--gray-medium);
+    text-shadow: 0 0 5px var(--gray-medium);
+    animation: pulse-loading 1.5s infinite;
+}
+
+.counter-display.loading::after {
+    content: '---';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+}
+
+/* ===== ERROR STATE ===== */
+
+.counter-display.error {
+    color: var(--neon-pink);
+    border-color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+    box-shadow: 
+        0 0 20px var(--neon-pink),
+        0 0 40px var(--neon-pink),
+        inset 0 0 20px rgba(255, 0, 255, 0.1);
+}
+
+.counter-display.error::after {
+    content: 'ERR';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    font-size: 0.6em;
+} 

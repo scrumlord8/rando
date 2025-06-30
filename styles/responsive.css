@@ -1,0 +1,538 @@
+/* Responsive Design for Rando Website */
+/* Mobile-first approach with progressive enhancement */
+
+/* ===== BASE MOBILE STYLES (320px+) ===== */
+/* These are the default styles, mobile-first */
+
+:root {
+    /* Responsive spacing scale */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+    
+    /* Responsive font sizes */
+    --font-size-xs: clamp(0.7rem, 2vw, 0.8rem);
+    --font-size-sm: clamp(0.8rem, 2.5vw, 0.9rem);
+    --font-size-base: clamp(0.9rem, 2.5vw, 1rem);
+    --font-size-lg: clamp(1rem, 3vw, 1.2rem);
+    --font-size-xl: clamp(1.2rem, 4vw, 1.5rem);
+    --font-size-xxl: clamp(1.5rem, 5vw, 2rem);
+    --font-size-hero: clamp(2rem, 8vw, 4rem);
+    --font-size-display: clamp(3rem, 10vw, 6rem);
+}
+
+/* Mobile container adjustments */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ===== SMALL MOBILE (320px - 480px) ===== */
+@media (max-width: 480px) {
+    :root {
+        --spacing-md: 0.75rem;
+        --spacing-lg: 1rem;
+        --spacing-xl: 1.5rem;
+        --spacing-xxl: 2rem;
+    }
+    
+    /* Header adjustments */
+    header {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    header h1 {
+        font-size: var(--font-size-xxl);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    header .tagline {
+        font-size: var(--font-size-xs);
+        letter-spacing: 0.1em;
+    }
+    
+    /* Main content */
+    main {
+        padding: var(--spacing-lg) var(--spacing-md);
+        gap: var(--spacing-xl);
+    }
+    
+    /* Hero section */
+    .hero {
+        padding: var(--spacing-lg);
+        max-width: 100%;
+    }
+    
+    .hero h2 {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .hero-description {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    /* Button adjustments */
+    .big-button {
+        padding: var(--spacing-lg) var(--spacing-xl);
+        min-width: 200px;
+        font-size: var(--font-size-lg);
+        min-height: 3rem;
+    }
+    
+    /* Counter section */
+    .counter {
+        padding: var(--spacing-lg) var(--spacing-md);
+        max-width: 100%;
+    }
+    
+    .counter-display {
+        font-size: var(--font-size-hero);
+        min-height: 60px;
+        padding: var(--spacing-md) var(--spacing-sm);
+        max-width: 200px;
+    }
+    
+    /* Social buttons */
+    .social-sharing {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        align-items: center;
+    }
+    
+    .social-btn {
+        width: 100%;
+        max-width: 200px;
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-size-sm);
+    }
+    
+    /* Footer */
+    footer {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    footer p {
+        font-size: var(--font-size-xs);
+    }
+}
+
+/* ===== LARGE MOBILE (481px - 767px) ===== */
+@media (min-width: 481px) and (max-width: 767px) {
+    :root {
+        --spacing-xl: 2rem;
+        --spacing-xxl: 2.5rem;
+    }
+    
+    /* Header */
+    header {
+        padding: var(--spacing-xl) var(--spacing-lg);
+    }
+    
+    header h1 {
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
+    }
+    
+    /* Main content */
+    main {
+        padding: var(--spacing-xl) var(--spacing-lg);
+        gap: var(--spacing-xxl);
+    }
+    
+    /* Hero section */
+    .hero {
+        padding: var(--spacing-xl);
+        max-width: 500px;
+    }
+    
+    /* Button */
+    .big-button {
+        padding: 1.3rem 2.5rem;
+        min-width: 250px;
+        font-size: clamp(1.1rem, 4vw, 1.4rem);
+    }
+    
+    /* Counter */
+    .counter-display {
+        font-size: clamp(2.5rem, 8vw, 4.5rem);
+        min-height: 80px;
+        max-width: 250px;
+    }
+    
+    /* Social buttons in row */
+    .social-sharing {
+        flex-direction: row;
+        gap: var(--spacing-lg);
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .social-btn {
+        width: auto;
+        min-width: 140px;
+    }
+}
+
+/* ===== TABLET (768px - 1023px) ===== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    :root {
+        --spacing-xl: 2.5rem;
+        --spacing-xxl: 3rem;
+    }
+    
+    /* Header */
+    header {
+        padding: var(--spacing-xxl) var(--spacing-xl);
+    }
+    
+    header h1 {
+        font-size: clamp(3rem, 6vw, 4rem);
+    }
+    
+    header .tagline {
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+    }
+    
+    /* Main content */
+    main {
+        padding: var(--spacing-xxl) var(--spacing-xl);
+        gap: 3.5rem;
+        max-width: 800px;
+    }
+    
+    /* Hero section */
+    .hero {
+        padding: var(--spacing-xxl);
+        max-width: 600px;
+    }
+    
+    .hero h2 {
+        font-size: clamp(1.8rem, 4vw, 2.2rem);
+    }
+    
+    .hero-description {
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        margin-bottom: var(--spacing-xxl);
+    }
+    
+    /* Button */
+    .big-button {
+        padding: 1.6rem 3.2rem;
+        min-width: 300px;
+        font-size: clamp(1.3rem, 4vw, 1.7rem);
+        min-height: 4.5rem;
+    }
+    
+    /* Counter */
+    .counter {
+        padding: var(--spacing-xxl);
+        max-width: 450px;
+    }
+    
+    .counter-display {
+        font-size: clamp(3.5rem, 8vw, 5.5rem);
+        min-height: 100px;
+        max-width: 320px;
+        padding: var(--spacing-xl) var(--spacing-lg);
+    }
+    
+    /* Social buttons */
+    .social-sharing {
+        gap: var(--spacing-xl);
+    }
+    
+    .social-btn {
+        min-width: 160px;
+        padding: var(--spacing-lg) var(--spacing-xl);
+        font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    }
+    
+    /* Footer */
+    footer {
+        padding: var(--spacing-xxl) var(--spacing-xl);
+    }
+}
+
+/* ===== SMALL DESKTOP (1024px - 1199px) ===== */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    :root {
+        --spacing-xxl: 3.5rem;
+    }
+    
+    /* Header */
+    header {
+        padding: var(--spacing-xxl) var(--spacing-xxl);
+    }
+    
+    header h1 {
+        font-size: clamp(3.5rem, 5vw, 4.5rem);
+    }
+    
+    /* Main content */
+    main {
+        padding: var(--spacing-xxl);
+        gap: 4rem;
+        max-width: 1000px;
+    }
+    
+    /* Hero section */
+    .hero {
+        max-width: 650px;
+    }
+    
+    /* Button */
+    .big-button {
+        padding: 1.8rem 3.6rem;
+        min-width: 320px;
+        font-size: clamp(1.4rem, 3vw, 1.8rem);
+        min-height: 5rem;
+    }
+    
+    /* Counter */
+    .counter {
+        max-width: 500px;
+    }
+    
+    .counter-display {
+        font-size: clamp(4rem, 7vw, 6rem);
+        min-height: 120px;
+        max-width: 350px;
+    }
+    
+    /* Social buttons */
+    .social-btn {
+        min-width: 170px;
+        font-size: 1.1rem;
+    }
+}
+
+/* ===== LARGE DESKTOP (1200px+) ===== */
+@media (min-width: 1200px) {
+    :root {
+        --spacing-xxl: 4rem;
+    }
+    
+    /* Enhanced typography scale for large screens */
+    body {
+        font-size: 18px;
+    }
+    
+    /* Header */
+    header {
+        padding: var(--spacing-xxl) var(--spacing-xxl);
+    }
+    
+    header h1 {
+        font-size: clamp(4rem, 5vw, 5rem);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    header .tagline {
+        font-size: clamp(1rem, 2vw, 1.3rem);
+    }
+    
+    /* Main content */
+    main {
+        padding: var(--spacing-xxl);
+        gap: 5rem;
+        max-width: 1200px;
+    }
+    
+    /* Hero section */
+    .hero {
+        padding: 3rem;
+        max-width: 700px;
+    }
+    
+    .hero h2 {
+        font-size: clamp(2.2rem, 4vw, 2.8rem);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .hero-description {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        margin-bottom: 3rem;
+    }
+    
+    /* Button */
+    .big-button {
+        padding: 2rem 4rem;
+        min-width: 350px;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        min-height: 5.5rem;
+    }
+    
+    /* Counter */
+    .counter {
+        padding: 3.5rem;
+        max-width: 550px;
+    }
+    
+    .counter p {
+        font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+        margin-bottom: 2.5rem;
+    }
+    
+    .counter-display {
+        font-size: clamp(5rem, 8vw, 8rem);
+        min-height: 150px;
+        max-width: 400px;
+        padding: 2.5rem 2rem;
+    }
+    
+    /* Social buttons */
+    .social-sharing {
+        gap: 2rem;
+    }
+    
+    .social-btn {
+        min-width: 180px;
+        padding: 1.2rem 2rem;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+    
+    /* Footer */
+    footer {
+        padding: var(--spacing-xxl);
+    }
+    
+    footer p {
+        font-size: 1rem;
+    }
+}
+
+/* ===== ULTRA-WIDE SCREENS (1400px+) ===== */
+@media (min-width: 1400px) {
+    /* Prevent excessive scaling on very large screens */
+    main {
+        max-width: 1400px;
+    }
+    
+    .hero {
+        max-width: 800px;
+    }
+    
+    .counter {
+        max-width: 600px;
+    }
+    
+    /* Cap maximum font sizes */
+    header h1 {
+        max-font-size: 6rem;
+    }
+    
+    .big-button {
+        max-width: 400px;
+        font-size: 2.5rem;
+    }
+    
+    .counter-display {
+        font-size: 10rem;
+        max-width: 500px;
+    }
+}
+
+/* ===== LANDSCAPE MOBILE ORIENTATION ===== */
+@media (max-width: 767px) and (orientation: landscape) {
+    /* Adjust for landscape mobile viewing */
+    header {
+        padding: var(--spacing-lg) var(--spacing-xl);
+    }
+    
+    main {
+        padding: var(--spacing-lg) var(--spacing-xl);
+        gap: var(--spacing-xl);
+    }
+    
+    .hero,
+    .counter {
+        padding: var(--spacing-lg);
+    }
+    
+    /* Reduce button height for landscape */
+    .big-button {
+        min-height: 3rem;
+        padding: var(--spacing-lg) var(--spacing-xl);
+    }
+    
+    .counter-display {
+        min-height: 50px;
+        font-size: clamp(2rem, 6vw, 3.5rem);
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    /* Hide interactive and decorative elements */
+    .big-button,
+    .social-sharing,
+    .pixel-grid,
+    .pixel-stars,
+    .retro-shapes,
+    .header-ascii {
+        display: none !important;
+    }
+    
+    /* Simplify for print */
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    header,
+    .hero,
+    .counter,
+    footer {
+        background: white !important;
+        border: 1px solid black !important;
+        box-shadow: none !important;
+    }
+    
+    /* Ensure readable text */
+    h1, h2, h3, p {
+        color: black !important;
+        text-shadow: none !important;
+    }
+    
+    .counter-display {
+        color: black !important;
+        text-shadow: none !important;
+        border: 2px solid black !important;
+    }
+}
+
+/* ===== ACCESSIBILITY RESPONSIVE FEATURES ===== */
+
+/* Large text mode support */
+@media (min-resolution: 2dppx) {
+    /* Enhance for high-DPI displays */
+    .big-button,
+    .counter-display {
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Touch-friendly adjustments */
+@media (pointer: coarse) {
+    /* Larger touch targets */
+    .big-button {
+        min-height: 44px;
+        padding: 1rem 2rem;
+    }
+    
+    .social-btn {
+        min-height: 44px;
+        padding: 0.75rem 1.5rem;
+    }
+    
+    /* Increased spacing for touch */
+    .social-sharing {
+        gap: 1rem;
+    }
+} 

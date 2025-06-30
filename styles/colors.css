@@ -1,0 +1,169 @@
+/* Retro Color Palette for Rando Website */
+/* Inspired by 90s computer terminals, neon signs, and early PC graphics */
+
+:root {
+    /* Primary Neon Colors */
+    --neon-green: #00ff00;
+    --neon-blue: #00ffff;
+    --neon-pink: #ff00ff;
+    --neon-yellow: #ffff00;
+    --neon-orange: #ff8000;
+    --neon-purple: #8000ff;
+    
+    /* Darker Neon Variants */
+    --neon-green-dark: #00cc00;
+    --neon-blue-dark: #00cccc;
+    --neon-pink-dark: #cc00cc;
+    --neon-yellow-dark: #cccc00;
+    --neon-orange-dark: #cc6600;
+    --neon-purple-dark: #6600cc;
+    
+    /* High Contrast Backgrounds */
+    --bg-black: #000000;
+    --bg-dark-gray: #1a1a1a;
+    --bg-charcoal: #2d2d2d;
+    --bg-terminal: #0c0c0c;
+    
+    /* Retro Grays */
+    --gray-light: #c0c0c0;
+    --gray-medium: #808080;
+    --gray-dark: #404040;
+    
+    /* Terminal Green Theme */
+    --terminal-green: #00ff00;
+    --terminal-green-dim: #00aa00;
+    --terminal-bg: #001100;
+    
+    /* Retro Computer Colors */
+    --retro-white: #ffffff;
+    --retro-black: #000000;
+    --retro-red: #ff0000;
+    --retro-blue: #0000ff;
+    
+    /* Gradient Combinations */
+    --gradient-neon: linear-gradient(45deg, var(--neon-pink), var(--neon-blue), var(--neon-green));
+    --gradient-terminal: linear-gradient(180deg, var(--terminal-bg), var(--bg-black));
+    --gradient-retro: linear-gradient(135deg, var(--bg-charcoal), var(--bg-black));
+    
+    /* Theme Color Schemes */
+    
+    /* Primary Theme - Neon Green on Black */
+    --primary-color: var(--neon-green);
+    --primary-bg: var(--bg-black);
+    --primary-text: var(--neon-green);
+    --primary-accent: var(--neon-blue);
+    
+    /* Secondary Theme - Neon Pink on Dark */
+    --secondary-color: var(--neon-pink);
+    --secondary-bg: var(--bg-dark-gray);
+    --secondary-text: var(--neon-pink);
+    --secondary-accent: var(--neon-yellow);
+    
+    /* Button Colors */
+    --btn-primary-bg: var(--neon-green);
+    --btn-primary-text: var(--bg-black);
+    --btn-primary-hover: var(--neon-green-dark);
+    --btn-primary-glow: var(--neon-green);
+    
+    --btn-secondary-bg: var(--neon-pink);
+    --btn-secondary-text: var(--bg-black);
+    --btn-secondary-hover: var(--neon-pink-dark);
+    --btn-secondary-glow: var(--neon-pink);
+    
+    /* Counter Colors */
+    --counter-bg: var(--bg-terminal);
+    --counter-text: var(--terminal-green);
+    --counter-border: var(--terminal-green-dim);
+    --counter-glow: var(--terminal-green);
+    
+    /* Social Media Colors */
+    --social-facebook: #1877f2;
+    --social-twitter: #1da1f2;
+    --social-bg: var(--bg-charcoal);
+    --social-hover: var(--neon-blue);
+    
+    /* Status Colors */
+    --success: var(--neon-green);
+    --warning: var(--neon-yellow);
+    --error: var(--neon-pink);
+    --info: var(--neon-blue);
+    
+    /* Animation Colors */
+    --flicker-color: var(--neon-green);
+    --scan-line: rgba(0, 255, 0, 0.1);
+    --crt-glow: rgba(0, 255, 0, 0.3);
+}
+
+/* Color Utility Classes */
+.text-neon-green { color: var(--neon-green); }
+.text-neon-blue { color: var(--neon-blue); }
+.text-neon-pink { color: var(--neon-pink); }
+.text-neon-yellow { color: var(--neon-yellow); }
+.text-neon-orange { color: var(--neon-orange); }
+.text-neon-purple { color: var(--neon-purple); }
+
+.bg-black { background-color: var(--bg-black); }
+.bg-dark-gray { background-color: var(--bg-dark-gray); }
+.bg-charcoal { background-color: var(--bg-charcoal); }
+.bg-terminal { background-color: var(--bg-terminal); }
+
+/* Neon Glow Effects */
+.glow-green {
+    color: var(--neon-green);
+    text-shadow: 0 0 5px var(--neon-green), 0 0 10px var(--neon-green), 0 0 15px var(--neon-green);
+}
+
+.glow-blue {
+    color: var(--neon-blue);
+    text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 15px var(--neon-blue);
+}
+
+.glow-pink {
+    color: var(--neon-pink);
+    text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink), 0 0 15px var(--neon-pink);
+}
+
+/* Border Glow Effects */
+.border-glow-green {
+    border: 2px solid var(--neon-green);
+    box-shadow: 0 0 5px var(--neon-green), 0 0 10px var(--neon-green), inset 0 0 5px var(--neon-green);
+}
+
+.border-glow-blue {
+    border: 2px solid var(--neon-blue);
+    box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), inset 0 0 5px var(--neon-blue);
+}
+
+.border-glow-pink {
+    border: 2px solid var(--neon-pink);
+    box-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink), inset 0 0 5px var(--neon-pink);
+}
+
+/* Retro Gradient Backgrounds */
+.bg-gradient-neon {
+    background: var(--gradient-neon);
+}
+
+.bg-gradient-terminal {
+    background: var(--gradient-terminal);
+}
+
+.bg-gradient-retro {
+    background: var(--gradient-retro);
+}
+
+/* High Contrast Theme Classes */
+.theme-terminal {
+    background-color: var(--terminal-bg);
+    color: var(--terminal-green);
+}
+
+.theme-neon {
+    background-color: var(--bg-black);
+    color: var(--neon-green);
+}
+
+.theme-retro {
+    background-color: var(--bg-charcoal);
+    color: var(--gray-light);
+} 

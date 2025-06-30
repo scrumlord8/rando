@@ -1,0 +1,64 @@
+/* Retro Font Imports and Definitions for Rando Website */
+
+/* Import Fixedsys from CDN - Classic Windows monospace font */
+@import url('https://unpkg.com/fixedsys-css/css/fixedsys.css');
+
+/* Import Google Fonts - Web-safe retro alternatives */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=VT323&display=swap');
+
+/* Custom Font Face Definitions */
+@font-face {
+    font-family: 'Matrix';
+    src: url('../assets/fonts/matrix.woff2') format('woff2'),
+         url('../assets/fonts/matrix.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Font Stack Definitions */
+:root {
+    /* Primary retro font stack - for headings and main text */
+    --font-primary: 'Fixedsys', 'VT323', 'Share Tech Mono', 'Courier New', monospace;
+    
+    /* Secondary retro font stack - for UI elements */
+    --font-secondary: 'Orbitron', 'Matrix', 'Arial Black', sans-serif;
+    
+    /* Monospace font stack - for counter and technical elements */
+    --font-mono: 'Share Tech Mono', 'VT323', 'Courier New', monospace;
+    
+    /* Display font stack - for large text and buttons */
+    --font-display: 'Orbitron', 'Fixedsys', 'Arial Black', sans-serif;
+}
+
+/* Font utility classes */
+.font-primary {
+    font-family: var(--font-primary);
+}
+
+.font-secondary {
+    font-family: var(--font-secondary);
+}
+
+.font-mono {
+    font-family: var(--font-mono);
+}
+
+.font-display {
+    font-family: var(--font-display);
+}
+
+/* Retro text effects */
+.text-pixelated {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+.text-glow {
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+}
+
+.text-retro-shadow {
+    text-shadow: 2px 2px 0px #000, 4px 4px 0px rgba(0,0,0,0.5);
+} 
