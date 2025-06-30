@@ -1,0 +1,337 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2024-12-30",
+  "description": "Curated list of safe and interesting websites for Rando",
+  "categories": {
+    "educational": {
+      "name": "Educational & Learning",
+      "description": "Educational resources, online courses, and learning platforms",
+      "websites": [
+        {
+          "url": "https://www.khanacademy.org",
+          "name": "Khan Academy",
+          "description": "Free online courses and lessons"
+        },
+        {
+          "url": "https://www.coursera.org",
+          "name": "Coursera",
+          "description": "Online courses from universities"
+        },
+        {
+          "url": "https://www.ted.com",
+          "name": "TED Talks",
+          "description": "Inspiring talks and ideas"
+        },
+        {
+          "url": "https://www.wikipedia.org",
+          "name": "Wikipedia",
+          "description": "Free encyclopedia"
+        },
+        {
+          "url": "https://www.duolingo.com",
+          "name": "Duolingo",
+          "description": "Language learning platform"
+        },
+        {
+          "url": "https://www.codecademy.com",
+          "name": "Codecademy",
+          "description": "Interactive coding lessons"
+        },
+        {
+          "url": "https://www.nationalgeographic.com",
+          "name": "National Geographic",
+          "description": "Science, exploration, and photography"
+        },
+        {
+          "url": "https://www.smithsonianmag.com",
+          "name": "Smithsonian Magazine",
+          "description": "History, science, and culture"
+        },
+        {
+          "url": "https://www.scientificamerican.com",
+          "name": "Scientific American",
+          "description": "Science news and discoveries"
+        },
+        {
+          "url": "https://www.howstuffworks.com",
+          "name": "HowStuffWorks",
+          "description": "Explanations of how things work"
+        }
+      ]
+    },
+    "entertainment": {
+      "name": "Fun & Entertainment",
+      "description": "Funny, interesting, and entertaining websites",
+      "websites": [
+        {
+          "url": "https://www.reddit.com",
+          "name": "Reddit",
+          "description": "Social news aggregation and discussion"
+        },
+        {
+          "url": "https://www.boredpanda.com",
+          "name": "Bored Panda",
+          "description": "Art, design, and interesting stories"
+        },
+        {
+          "url": "https://www.buzzfeed.com",
+          "name": "BuzzFeed",
+          "description": "Viral content and quizzes"
+        },
+        {
+          "url": "https://www.theoatmeal.com",
+          "name": "The Oatmeal",
+          "description": "Comics and humor"
+        },
+        {
+          "url": "https://xkcd.com",
+          "name": "xkcd",
+          "description": "Webcomic of romance, sarcasm, math, and language"
+        },
+        {
+          "url": "https://www.mentalfloss.com",
+          "name": "Mental Floss",
+          "description": "Fascinating facts and trivia"
+        },
+        {
+          "url": "https://www.cracked.com",
+          "name": "Cracked",
+          "description": "Comedy articles and lists"
+        },
+        {
+          "url": "https://www.collegehumor.com",
+          "name": "CollegeHumor",
+          "description": "Comedy videos and articles"
+        },
+        {
+          "url": "https://www.failblog.org",
+          "name": "FAIL Blog",
+          "description": "Epic fails and funny pictures"
+        },
+        {
+          "url": "https://www.awkwardfamilyphotos.com",
+          "name": "Awkward Family Photos",
+          "description": "Hilariously awkward family photos"
+        }
+      ]
+    },
+    "creative": {
+      "name": "Creative & Artistic",
+      "description": "Art, design, photography, and creative inspiration",
+      "websites": [
+        {
+          "url": "https://www.behance.net",
+          "name": "Behance",
+          "description": "Creative portfolios and inspiration"
+        },
+        {
+          "url": "https://dribbble.com",
+          "name": "Dribbble",
+          "description": "Design inspiration and portfolios"
+        },
+        {
+          "url": "https://www.deviantart.com",
+          "name": "DeviantArt",
+          "description": "Art community and galleries"
+        },
+        {
+          "url": "https://unsplash.com",
+          "name": "Unsplash",
+          "description": "Beautiful free photos"
+        },
+        {
+          "url": "https://www.pinterest.com",
+          "name": "Pinterest",
+          "description": "Visual discovery and ideas"
+        },
+        {
+          "url": "https://www.artstation.com",
+          "name": "ArtStation",
+          "description": "Digital art and game art"
+        },
+        {
+          "url": "https://www.flickr.com",
+          "name": "Flickr",
+          "description": "Photo sharing and discovery"
+        },
+        {
+          "url": "https://vimeo.com",
+          "name": "Vimeo",
+          "description": "High-quality video platform"
+        },
+        {
+          "url": "https://www.creativebloq.com",
+          "name": "Creative Bloq",
+          "description": "Art and design inspiration"
+        },
+        {
+          "url": "https://www.designboom.com",
+          "name": "Designboom",
+          "description": "Architecture and design magazine"
+        }
+      ]
+    },
+    "technology": {
+      "name": "Technology & Development",
+      "description": "Tech news, programming, and development resources",
+      "websites": [
+        {
+          "url": "https://github.com",
+          "name": "GitHub",
+          "description": "Code hosting and collaboration"
+        },
+        {
+          "url": "https://stackoverflow.com",
+          "name": "Stack Overflow",
+          "description": "Programming Q&A community"
+        },
+        {
+          "url": "https://www.producthunt.com",
+          "name": "Product Hunt",
+          "description": "Discover new products and startups"
+        },
+        {
+          "url": "https://news.ycombinator.com",
+          "name": "Hacker News",
+          "description": "Tech news and startup discussion"
+        },
+        {
+          "url": "https://www.theverge.com",
+          "name": "The Verge",
+          "description": "Technology news and reviews"
+        },
+        {
+          "url": "https://techcrunch.com",
+          "name": "TechCrunch",
+          "description": "Startup and technology news"
+        },
+        {
+          "url": "https://arstechnica.com",
+          "name": "Ars Technica",
+          "description": "Technology news and analysis"
+        },
+        {
+          "url": "https://www.wired.com",
+          "name": "WIRED",
+          "description": "Technology, science, and culture"
+        },
+        {
+          "url": "https://www.engadget.com",
+          "name": "Engadget",
+          "description": "Technology news and reviews"
+        },
+        {
+          "url": "https://slashdot.org",
+          "name": "Slashdot",
+          "description": "News for nerds, stuff that matters"
+        }
+      ]
+    },
+    "unique": {
+      "name": "Unique & Interesting",
+      "description": "Unusual, fascinating, and one-of-a-kind websites",
+      "websites": [
+        {
+          "url": "https://www.atlasobscura.com",
+          "name": "Atlas Obscura",
+          "description": "Unusual places and hidden wonders"
+        },
+        {
+          "url": "https://www.sporcle.com",
+          "name": "Sporcle",
+          "description": "Trivia and quiz games"
+        },
+        {
+          "url": "https://www.geoguessr.com",
+          "name": "GeoGuessr",
+          "description": "Geography guessing game"
+        },
+        {
+          "url": "https://www.radio.garden",
+          "name": "Radio Garden",
+          "description": "Listen to radio stations worldwide"
+        },
+        {
+          "url": "https://www.zombo.com",
+          "name": "Zombo.com",
+          "description": "The infinite possibility website"
+        },
+        {
+          "url": "https://www.theuselessweb.com",
+          "name": "The Useless Web",
+          "description": "Random useless but fun websites"
+        },
+        {
+          "url": "https://www.stumbleupon.com",
+          "name": "StumbleUpon",
+          "description": "Discover interesting web content"
+        },
+        {
+          "url": "https://www.mix.com",
+          "name": "Mix",
+          "description": "Discover and save interesting content"
+        },
+        {
+          "url": "https://www.randomwebsite.com",
+          "name": "Random Website",
+          "description": "Another random website generator"
+        },
+        {
+          "url": "https://www.boredbutton.com",
+          "name": "Bored Button",
+          "description": "Click when bored for random sites"
+        }
+      ]
+    },
+    "science": {
+      "name": "Science & Nature",
+      "description": "Scientific discoveries, nature, and space exploration",
+      "websites": [
+        {
+          "url": "https://www.nasa.gov",
+          "name": "NASA",
+          "description": "Space exploration and science"
+        },
+        {
+          "url": "https://www.nature.com",
+          "name": "Nature",
+          "description": "Scientific research and news"
+        },
+        {
+          "url": "https://www.space.com",
+          "name": "Space.com",
+          "description": "Space news and exploration"
+        },
+        {
+          "url": "https://www.livescience.com",
+          "name": "Live Science",
+          "description": "Science news and discoveries"
+        },
+        {
+          "url": "https://www.sciencedaily.com",
+          "name": "Science Daily",
+          "description": "Latest science research news"
+        },
+        {
+          "url": "https://www.popularmechanics.com",
+          "name": "Popular Mechanics",
+          "description": "Science, technology, and innovation"
+        },
+        {
+          "url": "https://www.newscientist.com",
+          "name": "New Scientist",
+          "description": "Science and technology news"
+        },
+        {
+          "url": "https://www.discovermagazine.com",
+          "name": "Discover Magazine",
+          "description": "Science, technology, and the future"
+        }
+      ]
+    }
+  },
+  "stats": {
+    "totalWebsites": 68,
+    "totalCategories": 6
+  }
+} 

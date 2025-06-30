@@ -45,7 +45,10 @@
         <section class="counter" id="counter-section" aria-labelledby="counter-heading">
             <h3 id="counter-heading" class="visually-hidden">Click Statistics</h3>
             <p>Adventurers who have taken the plunge:</p>
-            <div id="click-counter" class="counter-display" aria-live="polite" aria-label="Total clicks">0</div>
+            <div id="click-counter" class="counter-display" aria-live="polite" aria-label="Total clicks">
+                <span class="counter-value">0</span>
+                <span class="fallback-indicator" style="display: none;" aria-label="Offline mode">[Local]</span>
+            </div>
         </section>
     </main>
     
@@ -61,5 +64,8 @@
         </nav>
         <p>&copy; 2024 Rando - Explore the Internet</p>
     </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html> 

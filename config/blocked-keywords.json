@@ -1,0 +1,116 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2024-12-30",
+  "description": "Content filtering configuration for Rando website",
+  "settings": {
+    "enabled": true,
+    "strictMode": false,
+    "caseSensitive": false,
+    "blockSubdomains": true
+  },
+  "blockedKeywords": {
+    "adult": [
+      "adult", "porn", "xxx", "sex", "nude", "naked", "erotic", "fetish",
+      "cam", "webcam", "escort", "hookup", "dating", "milf", "teen",
+      "hardcore", "softcore", "strip", "lingerie", "bikini"
+    ],
+    "gambling": [
+      "casino", "gambling", "poker", "blackjack", "slots", "lottery",
+      "betting", "wager", "jackpot", "roulette", "bingo", "scratch",
+      "odds", "bet365", "sportsbet", "gamble"
+    ],
+    "drugs": [
+      "drugs", "cocaine", "heroin", "marijuana", "cannabis", "weed",
+      "meth", "ecstasy", "lsd", "prescription", "pharmacy", "pills",
+      "steroids", "opioid", "narcotic", "substance"
+    ],
+    "violence": [
+      "violence", "murder", "kill", "death", "weapon", "gun", "knife",
+      "bomb", "terrorist", "torture", "abuse", "fight", "war",
+      "blood", "gore", "brutal"
+    ],
+    "hate": [
+      "hate", "racist", "nazi", "supremacist", "discrimination",
+      "bigot", "homophobic", "transphobic", "xenophobic", "antisemitic",
+      "islamophobic", "slur", "offensive"
+    ],
+    "illegal": [
+      "illegal", "piracy", "torrent", "crack", "hack", "fraud",
+      "scam", "phishing", "malware", "virus", "stolen", "counterfeit",
+      "forgery", "money laundering", "tax evasion"
+    ],
+    "spam": [
+      "spam", "clickbait", "fake news", "conspiracy", "mlm",
+      "pyramid scheme", "get rich quick", "work from home",
+      "miracle cure", "weight loss", "enlargement"
+    ]
+  },
+  "blockedDomains": {
+    "adult": [
+      "pornhub.com", "xvideos.com", "redtube.com", "xhamster.com",
+      "youporn.com", "tube8.com", "spankbang.com", "xnxx.com",
+      "chaturbate.com", "cam4.com", "livejasmin.com", "stripchat.com",
+      "onlyfans.com", "manyvids.com", "clips4sale.com"
+    ],
+    "gambling": [
+      "casino.com", "gambling.com", "bet365.com", "pokerstars.com",
+      "888casino.com", "betfair.com", "williamhill.com", "ladbrokes.com",
+      "bwin.com", "unibet.com", "betway.com", "paddy-power.com"
+    ],
+    "drugs": [
+      "silk-road.com", "dream-market.com", "alphabay.com",
+      "pharmacy-online.com", "buy-drugs.com", "darknet-market.com"
+    ],
+    "malware": [
+      "malware-site.com", "virus-download.com", "trojan-horse.com",
+      "phishing-site.com", "fake-antivirus.com", "scareware.com"
+    ],
+    "scam": [
+      "get-rich-quick.com", "miracle-cure.com", "fake-reviews.com",
+      "phishing-bank.com", "lottery-scam.com", "romance-scam.com"
+    ]
+  },
+  "allowedExceptions": {
+    "educational": [
+      "sex-education", "health-education", "drug-awareness",
+      "violence-prevention", "anti-bullying", "history-war"
+    ],
+    "news": [
+      "news", "journalism", "documentary", "educational",
+      "academic", "research", "medical", "scientific"
+    ]
+  },
+  "whitelistedDomains": [
+    "wikipedia.org", "britannica.com", "khanacademy.org",
+    "coursera.org", "edx.org", "mit.edu", "harvard.edu",
+    "stanford.edu", "bbc.com", "cnn.com", "reuters.com",
+    "npr.org", "pbs.org", "nationalgeographic.com",
+    "smithsonianmag.com", "scientificamerican.com"
+  ],
+  "filteringRules": {
+    "urlChecking": {
+      "checkDomain": true,
+      "checkPath": true,
+      "checkQuery": true,
+      "checkFragment": false
+    },
+    "contentChecking": {
+      "checkTitle": true,
+      "checkDescription": true,
+      "checkMetaTags": true,
+      "checkContent": false
+    },
+    "scoring": {
+      "keywordWeight": 1.0,
+      "domainWeight": 2.0,
+      "contextWeight": 0.5,
+      "threshold": 1.0
+    }
+  },
+  "reporting": {
+    "enabled": true,
+    "logBlocked": true,
+    "reportToAdmin": false,
+    "userReporting": true
+  }
+} 

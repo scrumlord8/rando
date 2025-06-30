@@ -353,4 +353,55 @@ footer p {
         padding: 3rem 2rem;
         gap: 4rem;
     }
+}
+
+/* ===== ERROR MESSAGES ===== */
+
+.error-message {
+    background: var(--bg-dark);
+    color: var(--neon-red);
+    border: 2px solid var(--neon-red);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    box-shadow: 
+        0 0 10px var(--neon-red),
+        inset 0 0 10px rgba(255, 0, 0, 0.1);
+    animation: pulse-error 1s ease-in-out;
+    display: none;
+}
+
+@keyframes pulse-error {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== LOADING STATES ===== */
+
+.big-button.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.big-button.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid var(--neon-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translateY(-50%);
+}
+
+@keyframes spin {
+    0% { transform: translateY(-50%) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg); }
 } 
