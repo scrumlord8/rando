@@ -91,4 +91,13 @@ Based on the PRD: `prd-rando-website.md`
   - [x] 7.4 Test mobile responsiveness on various device sizes ✅
   - [x] 7.5 Implement performance monitoring and ensure sub-3-second load times ✅
   - [x] 7.6 Set up basic error tracking and logging ✅
-  - [x] 7.7 Prepare deployment configuration for static hosting ✅ 
+  - [x] 7.7 Prepare deployment configuration for static hosting ✅
+
+- [ ] 8.0 Implement backend integration for user submissions
+  - [ ] 8.1 Set up Formspree account and form endpoint for content reports
+  - [ ] 8.2 Modify reporting system to send reports to Formspree instead of localStorage
+  - [ ] 8.3 Add email notification system for incoming reports
+  - [ ] 8.4 Create "Suggest a Site" feature with same Formspree backend
+  - [ ] 8.5 Implement form validation and error handling for submissions
+  - [ ] 8.6 Test report submission and email delivery functionality
+  - [ ] 8.7 Add submission confirmation and success messaging 
