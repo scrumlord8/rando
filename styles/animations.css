@@ -433,6 +433,30 @@ a:hover::after {
     animation: scale-in var(--animation-speed-slow) var(--ease-bounce);
 }
 
+/* ===== NOTIFICATION ANIMATIONS ===== */
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
 /* ===== INTERACTIVE ANIMATIONS ===== */
 
 /* Hover lift effect */
@@ -532,4 +556,71 @@ a:hover::after {
 .big-button:focus,
 .social-btn:focus {
     animation: focus-ring 0.6s ease-out;
+}
+
+/* ===== DIALOG ANIMATIONS ===== */
+
+/* Dialog slide in animation */
+@keyframes dialogSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Dialog slide out animation */
+@keyframes dialogSlideOut {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.8) translateY(-20px);
+    }
+}
+
+/* Validation dialog specific animations */
+.validation-dialog .dialog-content {
+    animation: dialogSlideIn 0.3s ease-out;
+}
+
+.validation-dialog.closing .dialog-content {
+    animation: dialogSlideOut 0.3s ease-in;
+}
+
+/* Button pulse for validation dialog */
+@keyframes validationButtonPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 5px currentColor;
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 0 15px currentColor;
+    }
+}
+
+.validation-dialog button:focus {
+    animation: validationButtonPulse 2s infinite;
+}
+
+/* Backdrop blur animation */
+@keyframes backdropBlur {
+    from {
+        backdrop-filter: blur(0px);
+        background: rgba(0, 0, 0, 0);
+    }
+    to {
+        backdrop-filter: blur(4px);
+        background: rgba(0, 0, 0, 0.8);
+    }
+}
+
+.validation-dialog .dialog-overlay {
+    animation: backdropBlur 0.3s ease-out;
 } 

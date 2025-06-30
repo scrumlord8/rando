@@ -6,15 +6,16 @@
 .big-button {
     /* Base Styling */
     font-family: var(--font-display);
-    font-size: clamp(1.2rem, 4vw, 2rem);
+    font-size: clamp(1rem, 3vw, 1.6rem);
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     
     /* Dimensions */
-    padding: 1.5rem 3rem;
+    padding: 1.5rem 2.5rem;
     min-height: 4rem;
-    min-width: 280px;
+    min-width: 420px;
+    width: auto;
     
     /* Colors */
     background: var(--btn-primary-bg);
@@ -27,6 +28,7 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    white-space: nowrap;
     
     /* Border and Shape */
     border-radius: 8px;
@@ -217,14 +219,53 @@
         0 0 0 2px rgba(0, 255, 255, 0.5);
 }
 
+/* Social Button Sharing State */
+.social-btn.sharing {
+    animation: share-pulse 1s ease-out;
+    pointer-events: none;
+}
+
+@keyframes share-pulse {
+    0% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% { 
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#share-facebook.sharing {
+    color: var(--social-facebook);
+    border-color: var(--social-facebook);
+    box-shadow: 
+        0 0 20px var(--social-facebook),
+        0 0 40px var(--social-facebook);
+}
+
+#share-twitter.sharing {
+    color: var(--social-twitter);
+    border-color: var(--social-twitter);
+    box-shadow: 
+        0 0 20px var(--social-twitter),
+        0 0 40px var(--social-twitter);
+}
+
 /* ===== RESPONSIVE BUTTON DESIGN ===== */
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     .big-button {
         padding: 1.2rem 2rem;
-        min-width: 240px;
-        font-size: clamp(1rem, 4vw, 1.5rem);
+        min-width: 380px;
+        font-size: clamp(0.9rem, 3vw, 1.3rem);
+        white-space: nowrap;
+        letter-spacing: 0.06em;
     }
     
     .social-btn {
@@ -237,8 +278,12 @@
 @media (max-width: 480px) {
     .big-button {
         padding: 1rem 1.5rem;
-        min-width: 200px;
-        font-size: clamp(0.9rem, 4vw, 1.3rem);
+        min-width: 340px;
+        font-size: clamp(0.8rem, 3vw, 1.1rem);
+        white-space: nowrap;
+        letter-spacing: 0.05em;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
     .social-btn {
@@ -248,12 +293,27 @@
     }
 }
 
+/* Extra small screens */
+@media (max-width: 360px) {
+    .big-button {
+        padding: 0.8rem 1rem;
+        min-width: 300px;
+        font-size: clamp(0.7rem, 3vw, 0.95rem);
+        white-space: nowrap;
+        letter-spacing: 0.04em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
 /* Large Screen Enhancements */
 @media (min-width: 1200px) {
     .big-button {
-        padding: 2rem 4rem;
-        min-width: 320px;
-        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        padding: 2rem 3rem;
+        min-width: 480px;
+        font-size: clamp(1.3rem, 3vw, 2rem);
+        white-space: nowrap;
+        letter-spacing: 0.08em;
     }
     
     .social-btn {
@@ -322,4 +382,141 @@
     40% { content: '.'; }
     60% { content: '..'; }
     80%, 100% { content: '...'; }
+}
+
+/* ===== REPORT CONTENT BUTTON ===== */
+
+.report-section {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border: 1px solid var(--gray-dark);
+    border-radius: 8px;
+    background: var(--bg-black);
+    position: relative;
+}
+
+.report-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 48%, var(--color-red) 49%, var(--color-red) 51%, transparent 52%);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.report-btn {
+    /* Base Styling */
+    font-family: var(--font-secondary);
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    
+    /* Dimensions */
+    padding: 0.75rem 1.5rem;
+    min-width: 150px;
+    
+    /* Colors */
+    background: transparent;
+    color: var(--color-red);
+    border: 2px solid var(--color-red);
+    
+    /* Layout */
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 0.75rem;
+    
+    /* Border and Shape */
+    border-radius: 6px;
+    
+    /* Transitions */
+    transition: all 0.3s ease;
+    
+    /* Subtle Glow */
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+.report-btn:hover {
+    background: var(--color-red);
+    color: var(--gray-light);
+    transform: translateY(-1px);
+    
+    box-shadow: 
+        0 0 10px var(--color-red),
+        0 0 20px var(--color-red),
+        0 2px 8px rgba(0, 0, 0, 0.3);
+    
+    text-shadow: 0 0 5px var(--gray-light);
+}
+
+.report-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 0 5px var(--color-red);
+}
+
+.report-btn:focus {
+    outline: none;
+    box-shadow: 
+        0 0 10px var(--color-red),
+        0 0 20px var(--color-red),
+        0 0 0 3px rgba(255, 0, 0, 0.3);
+}
+
+.report-help {
+    color: var(--gray-medium);
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Report dialog animations */
+@keyframes backdropBlur {
+    from {
+        backdrop-filter: blur(0px);
+        opacity: 0;
+    }
+    to {
+        backdrop-filter: blur(4px);
+        opacity: 1;
+    }
+}
+
+@keyframes dialogSlideIn {
+    from {
+        transform: translateY(-50px) scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
 } 

@@ -1,0 +1,41 @@
+{
+  "name": "rando-website",
+  "version": "1.0.0",
+  "description": "A retro-themed random website explorer with 90s aesthetic",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build.js",
+    "minify-css": "node build.js --css-only",
+    "minify-js": "node build.js --js-only",
+    "optimize": "node build.js --optimize",
+    "serve": "python3 -m http.server 8000",
+    "dev": "npm run serve"
+  },
+  "keywords": [
+    "random",
+    "website",
+    "retro",
+    "90s",
+    "neon",
+    "explorer"
+  ],
+  "author": "Rando Team",
+  "license": "MIT",
+  "devDependencies": {
+    "terser": "^5.19.0",
+    "clean-css": "^5.3.0",
+    "html-minifier": "^4.0.0"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/rando-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/rando-website/issues"
+  },
+  "homepage": "https://your-username.github.io/rando-website"
+} 

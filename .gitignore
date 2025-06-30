@@ -1,0 +1,118 @@
+# ===== NODE.JS & NPM =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ===== ENVIRONMENT & CONFIG =====
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ===== OPERATING SYSTEM =====
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# ===== EDITORS & IDEs =====
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Cursor
+.cursor/
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# ===== BUILD & DEPLOYMENT =====
+# Build outputs (keep dist/ since it's our production build)
+# dist/
+build/
+out/
+
+# Logs
+logs/
+*.log
+
+# ===== TEMPORARY & CACHE FILES =====
+# Cache directories
+.cache/
+.parcel-cache/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# ===== TESTING =====
+coverage/
+.coverage
+.pytest_cache/
+.tox/
+
+# ===== SECURITY & SENSITIVE DATA =====
+# API keys and secrets (if you add any later)
+config/secrets.json
+config/api-keys.json
+*.key
+*.pem
+
+# Database files (if you add any later)
+*.db
+*.sqlite
+*.sqlite3
+
+# ===== PROJECT SPECIFIC =====
+# Backup files
+*.backup
+*.bak
+
+# Error screenshots or dumps
+screenshots/
+error-dumps/
+
+# Local development server files
+.local-server/
+
+# Analytics and tracking data (if stored locally)
+analytics/
+tracking/
+
+# User uploaded content (if any)
+uploads/
+user-content/ 
